@@ -15,10 +15,10 @@ if Rails.env.development?
     # Maybe something like the code below:
     #
     Flight.create :number => flight_number,
-                  :departure_code => from, 
-                  :arrival_code => to, 
+                  :departure_code => departure_code, 
+                  :arrival_code => arrival_code,
                   :departs_at => (Date.today + departure_time.hours),
-                  :miles => MileageCalculator.new(from, to).miles
+                  :distance => MileageCalculator.new(departure_code, arrival_code).miles
   end
   
 end
