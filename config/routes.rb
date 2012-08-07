@@ -1,6 +1,8 @@
 Air::Application.routes.draw do
   
-  root to: 'pages#home'
+  get '/mockup' => 'pages#home'
+  
+  # root to: 'pages#home'
   
   get '/help' => 'pages#help', :as => :help
   
