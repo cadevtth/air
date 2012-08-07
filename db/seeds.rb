@@ -14,11 +14,17 @@ if Rails.env.development?
     # Now we can generate a new flight using the random departure time
     # Maybe something like the code below:
     #
+    number_of_seats = rand(0..60)
+    if rand(0..3) == 0
+      number_of_seats = 0
+    end
+    
     Flight.create :number => flight_number,
                   :departure_code => departure_code, 
                   :arrival_code => arrival_code,
                   :departs_at => (Date.today + departure_time.hours),
-                  :distance => MileageCalculator.new(departure_code, arrival_code).miles
+                  :distance => MileageCalculator.new(departure_code, arrival_code).miles,
+                  :seats => number_of_seats
   end
   
 end

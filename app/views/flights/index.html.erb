@@ -20,14 +20,18 @@
   <tbody>
     <% @flights.each do |flight| %>
     <tr>
-      <td><button>Book Now</button></td>
+      <td>
+        <% if flight.bookable? %>
+          <button>Book Now</button>
+        <% end %>
+      </td>
       <td><%= flight.number %></td>
       <td><%= flight.departure_code %></td>
       <td><%= flight.departs_at.localtime.strftime("%l:%M %P %Z") %></td>
       <td><%= flight.arrival_code %></td>
-      <td><%#= flight.arrives_at %></td>
+      <td><%= flight.arrives_at.localtime.strftime("%l:%M %P %Z") %></td>
       <td><%= flight.seats %></td>
-      <td>0</td>
+      <td><%= flight.distance %></td>
     </tr>
     <% end %>
   </tbody>
