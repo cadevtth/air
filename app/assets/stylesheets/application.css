@@ -11,8 +11,10 @@
  *= require_tree .
  *= require_self
 */
-header p { 
-  clear: both;}
+#content { 
+  clear: both;
+}
+
 body {
   font-family: "Helvetica";
   margin: 20px auto;
