@@ -1,0 +1,23 @@
+<p>
+  <b>Flight:</b>
+  <%= @reservation.flight.for_display %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @reservation.user.name %>
+</p>
+
+<p>
+  <b>Departs on:</b>
+  <%= @reservation.departs_on %>
+</p>
+
+<p>
+  <b>Card number:</b>
+  <%= @reservation.card_number %>
+</p>
+
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  flight_id: 1
+  user_id: 1
+  departs_on: 2012-08-09
+  card_number: MyString
+
+two:
+  flight_id: 1
+  user_id: 1
+  departs_on: 2012-08-09
+  card_number: MyString

@@ -23,7 +23,8 @@
     <tr>
       <td>
         <% if flight.bookable? %>
-          <button>Book Now</button>
+          <!-- <button>Book Now</button> -->
+          <%= link_to "Book Now", new_reservation_url(:flight_id => flight.id) %>
         <% end %>
       </td>
       <td><%= flight.number %></td>
