@@ -8,7 +8,6 @@ gem 'rails', '3.2.3'
 
 group :development do
   gem 'sqlite3'
-  gem 'thin'
   gem 'quiet_assets'
   gem 'annotate'
 end
