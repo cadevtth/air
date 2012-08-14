@@ -1,11 +1,16 @@
 <h2>Daily Flight Schedule</h2>
 
+<!-- <div id="search">
+  <label for="keyword">Search:</label><input type="text" name="keyword" placeholder="Enter an Airport Code" size="30">
+</div> -->
 
-<div id="search">
-	<label for="keyword">Search:</label><input type="text" name="keyword" placeholder="Enter an Airport Code" size="30">
-</div>
+<%= form_tag root_url, :method => 'get' do %>
+  <%= label_tag :keyword, 'Search:' %>
+  <%= text_field_tag :keyword, nil, :placeholder => 'Enter an Airport Code', :size => 30 %>
+<% end %>
 
-<%= paginate @flights %>
+
+<%#= paginate @flights %>
 
 <table>
   <thead>

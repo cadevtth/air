@@ -115,7 +115,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   coffee-rails (~> 3.2.1)
   jquery-rails
-  kaminari
+  kaminari (= 0.13.0)
   quiet_assets
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)

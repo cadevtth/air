@@ -43,6 +43,14 @@ if Rails.env.development?
   puts 'Creating reservations.'
   User.all.each do |user|
     Flight.all.sample(rand(5)).each do |flight|
+      
+      # r = Reservation.new
+      # r.user_id = user.id
+      # r.flight_id = flight.id
+      # r.departs_on = Date.today + rand(180)
+      # r.card_number = (4444000000000000 + rand(1000000000000)).to_s
+      # r.save
+      
       user.reservations.create :departs_on => Date.today + rand(180),
                                :card_number => (4444000000000000 + rand(1000000000000)).to_s,                         
                                :flight_id => flight.id

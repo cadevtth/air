@@ -2,7 +2,13 @@ class FlightsController < ApplicationController
   
   def index
     
-    @flights = Flight.page(params[:page]).per(2)
+    if params[:keyword].present?
+      @flights = Flight.find_all_by_departure_code(params[:keyword].upcase)
+    else
+      @flights = Flight.all
+    end
+    
+    # @flights = Flight.page(params[:page]).per(2)
     
     # ?page=5
     # @page = params[:page].to_i
