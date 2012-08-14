@@ -1,5 +1,7 @@
 Air::Application.routes.draw do
   
+  resources :airports
+
   resources :reservations
 
   get "sessions/new" => 'sessions#new', :as => :new_session

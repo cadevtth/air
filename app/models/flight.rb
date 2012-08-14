@@ -1,5 +1,8 @@
 class Flight < ActiveRecord::Base
-  attr_accessible :arrival_code, :departs_at, :departure_code, :distance, :number, :seats
+  attr_accessible :arrival_code, :departs_at, :departure_code, :distance, :number, :seats, :airport_id, :departure_airport_id, :arrival_airport_id
+  
+  belongs_to :departure_airport, :class_name => 'Airport'
+  belongs_to :arrival_airport, :class_name => 'Airport'
   
   def bookable?
     self.seats > 0

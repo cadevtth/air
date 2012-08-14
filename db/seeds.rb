@@ -2,15 +2,25 @@ if Rails.env.development?
   
   Time.zone = "America/Chicago"
   
+  Airport.destroy_all
   Flight.destroy_all
   User.destroy_all
   Reservation.destroy_all
   
-  codes = ['ORD', 'JFK', 'BOS', 'LAX']
+  airports = [
+    {:city => "Chicago", :code => 'ORD'},
+    {:city => "New York", :code => 'JFK'},
+    {:city => "Boston", :code => 'BOS'},
+    {:city => "Los Angeles", :code => 'LAX'}
+  ]
+  
+  airports.each do |airport|
+    Airport.create airport
+  end
 
   puts 'Creating flights.'  
-  10.times do 
-    departure_code, arrival_code = codes.sample(2)
+  100.times do 
+    departure_airport, arrival_airport = Airport.all.sample(2)
     departure_time = rand(8..20)
     flight_number = rand(100..999)
 
@@ -23,10 +33,10 @@ if Rails.env.development?
     end
     
     Flight.create :number => flight_number,
-                  :departure_code => departure_code, 
-                  :arrival_code => arrival_code,
+                  :departure_airport_id => departure_airport.id, 
+                  :arrival_airport_id => arrival_airport.id,
                   :departs_at => (Date.today + departure_time.hours),
-                  :distance => MileageCalculator.new(departure_code, arrival_code).miles,
+                  :distance => MileageCalculator.new(departure_airport.code, arrival_airport.code).miles,
                   :seats => number_of_seats
   end
   
