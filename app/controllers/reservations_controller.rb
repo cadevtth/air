@@ -44,9 +44,9 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(params[:reservation])
     @reservation.user = User.find_by_id(session["user_id"])
-    
     respond_to do |format|
       if @reservation.save
+        
         format.html { redirect_to @reservation, notice: 'Reservation was successfully created.' }
         format.json { render json: @reservation, status: :created, location: @reservation }
       else
