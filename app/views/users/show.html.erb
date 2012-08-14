@@ -1,7 +1,5 @@
 <h2>My Profile</h2>
 
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Email:</b>
   <%= @user.email %>
@@ -11,6 +9,15 @@
   <b>Name:</b>
   <%= @user.name %>
 </p>
+
+<ul>
+<% @user.reservations.each do |reservation| %>
+  <li>
+        <%= reservation.flight.number %> from <%= reservation.flight.departure_code %> to
+        <%= reservation.flight.arrival_code %> on <%= reservation.departs_on %>
+  </li>
+<% end %>
+</ul>
 
 <p>
   <b>Frequent Flyer Miles: 0</b>
