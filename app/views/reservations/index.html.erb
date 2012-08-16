@@ -1,4 +1,8 @@
-<h1>Listing reservations</h1>
+<h1>Reservations</h1>
+
+<div id="moolah">
+  <h1>Total Revenue So Far: <%= number_to_currency(Reservation.count * 70) %></h1>
+</div>
 
 <table>
   <tr>

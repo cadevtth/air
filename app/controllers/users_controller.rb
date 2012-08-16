@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+  
+  before_filter :require_login, :only => [:show]
+  before_filter :require_authorization, :only => [:show]
+  
+  def require_authorization
+    redirect_to root_url, notice: 'Nice try!' unless session[:user_id] == params[:id].to_i
+  end
+  
   # GET /users
   # GET /users.json
   def index

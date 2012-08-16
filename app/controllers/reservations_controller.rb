@@ -1,4 +1,12 @@
 class ReservationsController < ApplicationController
+  
+  before_filter :require_login, :except => [:new, :create]
+  before_filter :require_admin, :except => [:new, :create]
+  
+  def require_admin
+    redirect_to root_url, notice: 'Nice try!' unless @user.admin?
+  end
+  
   # GET /reservations
   # GET /reservations.json
   def index
